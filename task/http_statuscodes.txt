@@ -1,0 +1,25 @@
+// http
+connection between  web and server 
+ request -> server(http)  -> response
+response -> client(web) -> display
+   //methods
+
+   get : get method is used to get the data from the server.
+   post : post method is used to send data to the server.
+   put : put method is used to update the data on the server.
+   Delete : delete data from server
+   patch : partially update the data
+   
+   //status code
+   100-199  : still in process
+   200-299 : success
+   300-399 : redirect
+   400-499 : client errors
+   500-599 : server errors
+     400: bad request
+     401: authentication
+     404: not found 
+     405: method not allowed
+     429 : too many request
+     500: internal server error
+     
