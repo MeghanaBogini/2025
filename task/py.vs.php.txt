@@ -1,0 +1,27 @@
+Class & Object Creation
+PHP: Uses class and the new keyword to instantiate objects.
+Python: Uses class, but instantiation does not require new.
+
+ Encapsulation
+PHP: Uses public, protected, and private for access control.
+Python: Uses _ (protected) and __ (private), but does not enforce strict access control.
+
+Inheritance
+PHP: Uses extends for single inheritance. Multiple inheritance is not supported (Traits can be used).
+Python: Supports single, multiple, hierarchical, multilevel, and hybrid inheritance
+
+Method Overriding
+Both PHP and Python support method overriding, where a child class redefines a method from the parent class.
+
+
+Method Overloading
+PHP: Does not support method overloading natively, but can be done using func_get_args().
+Python: Supports method overloading using default arguments or @overload from typing.
+
+
+Constructor
+PHP: Uses __construct().
+Python: Uses __init__().
+
+Abstract Classes
+Both PHP and Python support abstract classes, but PHP requires abstract keyword.
