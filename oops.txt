@@ -1,0 +1,251 @@
+PROGRAMMING PARADIGM
+Way of organizating and writing code.
+different paradigms provide different approaches to sloving problems.\
+ Types:
+ 1. IMPERATIVE PROGRAMMING PARADIGM
+ 2. OBJECT ORIENTED PROGRAMMING PARADIGM
+ 3. FUNCTIONAL PROGRAMMING PARADIGM
+ 4. LOGICAL PROGRAMMING PARADIGM    
+
+
+
+1. IMPERATIVE PROGRAMMING PARADIGM  or procedural 
+- Focuses on describing how to perform a task.
+<?php
+for ($i = 1; $i <= 10; $i++) {
+    echo $i;      }
+?>
+
+2. OBJECT ORIENTED PROGRAMMING PARADIGM-
+ Oraganizes code into objects,which contain data(properties/attributes) and behaviour (methods/functions).
+ classes: blue print for creating objects.
+ objects: An instance of class with actual values.
+ provides a good structure 
+ fast execuation
+They are:
+
+1.Encapsulation:
+    integrating data (variables) and code (methods) into a single unit. In encapsulation, a class's variables are hidden from other classes and can only be accessed by the methods of the class in which they are found.
+
+
+<?php
+class Teacher {
+    private $name;
+    private $salary;
+
+    public function __construct($name, $salary) {
+        $this->name = $name;
+        $this->salary = $salary;
+    }
+    public function getName() {
+        return $this->name;
+    }
+    public function setName($name) {
+        $this->name = $name;
+    }
+    public function getSalary() {
+        return $this->salary;
+    }
+    public function setSalary($salary) {
+        if ($salary > 0) {
+            $this->salary = $salary;
+        } else {
+            echo "Salary must be a positive value.";
+        }
+    }
+}
+
+
+2.  Inheritance: 
+It allows the properties and methods of one class to be inherited by another class. The class that is being inherited is called the parent.
+
+<?php
+class Organization {
+    protected $orgName;
+
+    public function __construct($orgName) {
+        $this->orgName = $orgName;
+    }
+
+    public function getOrgDetails() {
+        return "Organization: " . $this->orgName;
+    }
+}
+
+class Division extends Organization {
+    protected $divisionName;
+
+    public function __construct($orgName, $divisionName) {
+        parent::__construct($orgName);
+        $this->divisionName = $divisionName;
+    }
+
+    public function getDivisionDetails() {
+        return parent::getOrgDetails() . " | Division: " . $this->divisionName;
+    }
+}
+
+class Circle extends Division {
+    private $circleName;
+
+    public function __construct($orgName, $divisionName, $circleName) {
+        parent::__construct($orgName, $divisionName);
+        $this->circleName = $circleName;
+    }
+
+    public function getCircleDetails() {
+        return parent::getDivisionDetails() . " | Circle: " . $this->circleName;
+    }
+}
+?>
+
+3. Polymorphism:
+Polymorphism allows different classes to implement the same method in different ways.
+
+
+<?php
+class Organization {
+    protected $name;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    public function getDetails() {
+        return "Organization Name: " . $this->name;
+    }
+}
+
+class Division extends Organization {
+    protected $divisionName;
+
+    public function __construct($name, $divisionName) {
+        parent::__construct($name);
+        $this->divisionName = $divisionName;
+    }
+
+    public function getDetails() {
+        return parent::getDetails() . " | Division: " . $this->divisionName;
+    }
+}
+
+4.Abstraction 
+Hidding of unnecassary functionality allow only the necessary functionality to be exposed to the user.
+ 
+<?php
+
+abstract class Organization {
+    protected $name;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    abstract public function getDetails();
+}
+
+class Division extends Organization {
+    protected $divisionName;
+
+    public function __construct($name, $divisionName) {
+        parent::__construct($name);
+        $this->divisionName = $divisionName;
+    }
+
+    public function getDetails() {
+        return "Organization: " . $this->name . " | Division: " . $this->divisionName;
+    }
+}
+
+?>
+
+ 3. FUNCTIONAL PROGRAMMING PARADIGM
+In functional programming, we focus on the data and the operations that can be performed on it, 
+rather than the state of the data. This means that we avoid changing the state of the data as much as possible, and instead, we create new data structures and return them from functions. 
+
+<?php
+$age = 20;
+
+if ($age >= 18) {
+    echo "You are eligible to vote.";
+} 
+else {
+echo "You are not eligible to vote.";
+}
+?>
+
+ternory operator 
+<?php
+$age = 20;
+echo ($age >= 18) ? "Adult" : "Minor";
+?>
+
+
+  //loops
+  1. foreach -array 
+  <?php
+$colors = ["Red", "Green", "Blue"];
+
+foreach ($colors as $color) {
+    echo "Color: $color" . PHP_EOL;
+}
+?>
+
+ do -while
+<?php
+$count = 1;
+
+do {
+    $count++;
+} while ($count <= 3);
+?>
+
+
+//while
+
+<?php
+$count = 1;
+
+do {
+    $count++;
+} while ($count <= 3);
+?>
+
+ for loops
+ <?php
+for ($i = 1; $i <= 5; $i++) {
+}
+?>
+
+ 
+ 4. LOGICAL PROGRAMMING PARADIGM   The Logical Programming Paradigm is based on facts, rules, and inference rather than procedural execution.
+ 
+
+
+
+
+  Method Overriding :
+  occurs when a child class redefines a method from the parent class with the same name and parameters.
+  <?php
+class ParentClass {
+    public function showMessage() {
+        echo "Hello from ParentClass!\n";
+    }
+}
+
+class ChildClass extends ParentClass {
+    public function showMessage() {  
+        echo "Hello from ChildClass!\n";
+    }
+}
+
+$obj = new ChildClass();
+$obj->showMessage();  
+?>
+
+
+
+Method Overloading :
+Method Overloading occurs when multiple methods have the same name but different parameters.
+🔹 PHP does not support native method overloading, but it can be achieved using func_get_args().
+🔹 Python supports method overloading using default arguments or @overload 
